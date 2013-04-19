@@ -127,9 +127,9 @@ student address_selection(student list)
 
     while (1) {
         printf
-            ("Enter adress of %sSelect the type of address\na - Minsk\nb - Regional сity\nc - Distriсt town\nd - Village\n",
-             list.surname);
-        fgets(&list.type_of_addr, string_size, stdin);
+            ("Enter adress of %sSelect the type of address\na - Minsk\nb - Regional сity\nc - Distriсt town\nd - Village\n",list.surname);
+        list.type_of_addr=getchar();
+        putchar(list.type_of_addr);
         if (list.type_of_addr > 'd' || list.type_of_addr < 'a') {
             puts("ERROR INPUT");
             continue;

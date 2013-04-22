@@ -124,11 +124,10 @@ student input_addr_d(student list)
 
 student address_selection(student list)
 {
-
     while (1) {
-        printf
-            ("Enter adress of %sSelect the type of address\na - Minsk\nb - Regional сity\nc - Distriсt town\nd - Village\n",list.surname);
-        list.type_of_addr=getchar();
+        printf("Enter adress of %sSelect the type of address\na - Minsk\nb - Regional сity\nc - Distriсt town\nd - Village\n",list.surname);
+        list.type_of_addr = getchar();
+        __fpurge(stdin);
         if (list.type_of_addr > 'd' || list.type_of_addr < 'a') {
             puts("ERROR INPUT");
             continue;
@@ -175,7 +174,6 @@ void input_of_inform(student * list)
         printf("Enter surname of %d student\n", i + 1);
         my_gets(list[i].surname, string_size);
         list[i] = address_selection(list[i]);
-        system("clear");
     }
 }
 

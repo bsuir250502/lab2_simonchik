@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include<stdlib.h>
-#include<string.h>
+#include <stdlib.h>
+#include <string.h>
 
 #define string_size 256
 #define num_of_students 4
@@ -127,7 +127,7 @@ student address_selection(student list)
     while (1) {
         printf("Enter adress of %sSelect the type of address\na - Minsk\nb - Regional сity\nc - Distriсt town\nd - Village\n",list.surname);
         list.type_of_addr = getchar();
-        __fpurge(stdin);
+        getchar();
         if (list.type_of_addr > 'd' || list.type_of_addr < 'a') {
             puts("ERROR INPUT");
             continue;

@@ -45,7 +45,7 @@ typedef struct student {
     } addr_type;
 } student;
 
-int input_num(void)
+int InputNum(void)
 {
     char number[string_size];
     int num;
@@ -61,68 +61,68 @@ int input_num(void)
     return num;
 }
 
-char *my_gets(char *str, size_t strin_size)
+char *MyGets(char *str, size_t strin_size)
 {
     fgets(str, strin_size, stdin);
     str[strlen(str) - 1] = '\0';
     return str;
 }
 
-student input_addr_a(student list)
+student InputAddrA(student list)
 {
     printf("Enter name of the street: ");
-    my_gets(list.addr_type.minsk.street, string_size);
+    MyGets(list.addr_type.minsk.street, string_size);
     printf("Enter the number of house: ");
-    list.addr_type.minsk.house = input_num();
+    list.addr_type.minsk.house = InputNum();
     printf("Enter the number of flat: ");
-    list.addr_type.minsk.flat = input_num();
+    list.addr_type.minsk.flat = InputNum();
     return list;
 }
 
-student input_addr_b(student list)
+student InputAddrB(student list)
 {
     printf("Enter name of the regional city: ");
-    my_gets(list.addr_type.regional_city.city, string_size);
+    MyGets(list.addr_type.regional_city.city, string_size);
     printf("Enter name of the street: ");
-    my_gets(list.addr_type.regional_city.street, string_size);
+    MyGets(list.addr_type.regional_city.street, string_size);
     printf("Enter the number of house: ");
-    list.addr_type.regional_city.house = input_num();
+    list.addr_type.regional_city.house = InputNum();
     printf("Enter the number of flat: ");
-    list.addr_type.regional_city.flat = input_num();
+    list.addr_type.regional_city.flat = InputNum();
     return list;
 }
 
-student input_addr_c(student list)
+student InputAddrC(student list)
 {
     printf("Enter name of the region: ");
-    my_gets(list.addr_type.district_town.region, string_size);
+    MyGets(list.addr_type.district_town.region, string_size);
     printf("Enter name of the town: ");
-    my_gets(list.addr_type.district_town.town, string_size);
+    MyGets(list.addr_type.district_town.town, string_size);
     printf("Enter name of the street: ");
-    my_gets(list.addr_type.district_town.street, string_size);
+    MyGets(list.addr_type.district_town.street, string_size);
     printf("Enter the number of house: ");
-    list.addr_type.district_town.house = input_num();
+    list.addr_type.district_town.house = InputNum();
     printf("Enter the number of flat: ");
-    list.addr_type.district_town.flat = input_num();
+    list.addr_type.district_town.flat = InputNum();
     return list;
 }
 
-student input_addr_d(student list)
+student InputAddrD(student list)
 {
     printf("Enter name of the region: ");
-    my_gets(list.addr_type.village.region, string_size);
+    MyGets(list.addr_type.village.region, string_size);
     printf("Enter name of the district: ");
-    my_gets(list.addr_type.village.district, string_size);
+    MyGets(list.addr_type.village.district, string_size);
     printf("Enter name of the village: ");
-    my_gets(list.addr_type.village.village, string_size);
+    MyGets(list.addr_type.village.village, string_size);
     printf("Enter name of the street: ");
-    my_gets(list.addr_type.village.street, string_size);
+    MyGets(list.addr_type.village.street, string_size);
     printf("Enter the number of house: ");
-    list.addr_type.village.house = input_num();
+    list.addr_type.village.house = InputNum();
     return list;
 }
 
-student address_selection(student list)
+student AddressSelection(student list)
 {
     while (1) {
         printf("Enter adress of %sSelect the type of address\na - Minsk\nb - Regional сity\nc - Distriсt town\nd - Village\n",list.surname);
@@ -136,23 +136,23 @@ student address_selection(student list)
     }
     switch (list.type_of_addr) {
     case 'a':
-        list = input_addr_a(list);
+        list = InputAddrA(list);
         break;
     case 'b':
-        list = input_addr_b(list);
+        list = InputAddrB(list);
         break;
     case 'c':
-        list = input_addr_c(list);
+        list = InputAddrC(list);
         break;
     case 'd':
-        list = input_addr_d(list);
+        list = InputAddrD(list);
         break;
     }
     return list;
 }
 
 
-void checkHelp(void)
+void Help(void)
 {
     printf
         ("================================================================================\n"
@@ -167,17 +167,17 @@ void checkHelp(void)
     exit(0);
 }
 
-void input_of_inform(student * list)
+void InputInform(student * list)
 {
     int i;
     for (i = 0; i < num_of_students; i++) {
         printf("Enter surname of %d student\n", i + 1);
-        my_gets(list[i].surname, string_size);
-        list[i] = address_selection(list[i]);
+        MyGets(list[i].surname, string_size);
+        list[i] = AddressSelection(list[i]);
     }
 }
 
-void output_stud_from_Minsk(student * list)
+void OutputStudFromMinsk(student * list)
 {
     int i = 0;
     for (i = 0; i < num_of_students; i++) {
@@ -191,7 +191,7 @@ void output_stud_from_Minsk(student * list)
     }
 }
 
-void output_stud_from_cities(student * list)
+void OutputStudFromCities(student * list)
 {
     int i = 0;
     for (i = 0; i < num_of_students; i++) {
@@ -206,7 +206,7 @@ void output_stud_from_cities(student * list)
     }
 }
 
-void output_stud_from_towns(student * list)
+void OutputStudFromTowns(student * list)
 {
     int i = 0;
     for (i = 0; i < num_of_students; i++) {
@@ -222,7 +222,7 @@ void output_stud_from_towns(student * list)
     }
 }
 
-void output_stud_from_villages(student * list)
+void OutputStudFromVillages(student * list)
 {
     int i = 0;
     for (i = 0; i < num_of_students; i++) {
@@ -243,18 +243,18 @@ int main(int argc, char *argv[])
     struct student list[num_of_students];
     if (argc > 1) {
         if (!strcmp(argv[1], "-h"))
-            checkHelp();
+            Help();
     }
-    input_of_inform(list);
+    InputInform(list);
     if (argc > 1) {
         if (!strcmp(argv[1], "-m"))
-            output_stud_from_Minsk(list);
+            OutputStudFromMinsk(list);
         if (!strcmp(argv[1], "-c"))
-            output_stud_from_cities(list);
+            OutputStudFromCities(list);
         if (!strcmp(argv[1], "-t"))
-            output_stud_from_towns(list);
+            OutputStudFromTowns(list);
         if (!strcmp(argv[1], "-v"))
-            output_stud_from_villages(list);
+            OutputStudFromVillages(list);
     }
     return 0;
 }
